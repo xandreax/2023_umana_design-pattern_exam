@@ -21,7 +21,7 @@ public class AmountPrinter {
         System.out.println("Error: " + error);
     }
 
-    public void printOperationResult(OperationResult operationResult){
+    public void printOperationResult(OperationResult operationResult) {
         printResult(operationResult.getResult());
         printRest(operationResult.getRest());
     }
@@ -30,8 +30,8 @@ public class AmountPrinter {
         System.out.printf("Result: %dp %ds %dd", amount.getPounds(), amount.getShillings(), amount.getPences());
     }
 
-    private void printRest(Amount amount){
-        if(amount != null){
+    private void printRest(Amount amount) {
+        if (amount != null) {
             System.out.printf(" (%ds %dd)", amount.getShillings(), amount.getPences());
         }
     }
