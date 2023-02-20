@@ -5,6 +5,18 @@ import it.euris.academy2023.oldfashionpound.exceptions.OperationTypeException;
 
 public class OperatorFactory {
 
+    private static OperatorFactory instance;
+
+    private OperatorFactory() {
+    }
+
+    public static OperatorFactory getInstance() {
+        if (instance == null) {
+            instance = new OperatorFactory();
+        }
+        return instance;
+    }
+
     public Operation getOperation(ParsingResult parsingResult) throws OperationTypeException {
         switch (parsingResult.getOperator()) {
             case SUM:
