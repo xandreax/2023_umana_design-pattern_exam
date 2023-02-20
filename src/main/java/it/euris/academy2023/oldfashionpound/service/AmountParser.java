@@ -24,7 +24,7 @@ public class AmountParser {
         OperationType operationType = parseOperator(expression);
         String[] operands = expression.split(operationType.getOperator());
         Amount firstOperand = parseAmount(operands[0].replaceAll(" ", ""));
-        ParsingResultBuilder builder = ParsingResultBuilder.builder().setFirst(firstOperand);
+        ParsingResultBuilder builder = ParsingResultBuilder.builder().setFirst(firstOperand).setOperator(operationType);
         if (operationType == OperationType.MULTIPLICATION || operationType == OperationType.DIVISION) {
             try {
                 int constant = Integer.parseInt(operands[1].replaceAll(" ", ""));
