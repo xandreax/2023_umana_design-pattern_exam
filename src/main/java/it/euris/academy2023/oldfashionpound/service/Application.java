@@ -1,7 +1,10 @@
 package it.euris.academy2023.oldfashionpound.service;
 
 import it.euris.academy2023.oldfashionpound.entities.ParsingResult;
+import it.euris.academy2023.oldfashionpound.exceptions.OperationTypeException;
 import it.euris.academy2023.oldfashionpound.exceptions.ParsingExpressionException;
+import it.euris.academy2023.oldfashionpound.operations.Operation;
+import it.euris.academy2023.oldfashionpound.operations.OperatorFactory;
 
 public class Application {
 
@@ -10,9 +13,9 @@ public class Application {
         AmountPrinter amountPrinter = AmountPrinter.getInstance();
         try {
             ParsingResult parsingResult = amountParser.parse(expression);
-            amountPrinter.printAmount(parsingResult.getFirstOperand());
-
-        } catch (ParsingExpressionException e) {
+            Operation operation = OperatorFactory.getInstance().getOperation(parsingResult);
+            amountPrinter.printAmount(operation.calculate());
+        } catch (ParsingExpressionException | OperationTypeException e) {
             amountPrinter.printError(e.getMessage());
         }
     }
