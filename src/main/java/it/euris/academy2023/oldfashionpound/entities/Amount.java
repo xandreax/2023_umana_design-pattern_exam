@@ -5,9 +5,6 @@ public class Amount {
     private int shillings;
     private int pences;
 
-    private static final int LIMIT_PENCES = 12;
-    private static final int LIMIT_SHILLINGS = 20;
-
     public int getPounds() {
         return pounds;
     }
