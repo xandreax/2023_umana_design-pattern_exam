@@ -15,6 +15,14 @@ public class Division implements Operation {
 
     @Override
     public Amount calculate() {
-        return null;
+        int pounds = operand.getPounds() / constant;
+        int shillings_surplus = (operand.getPounds() % constant) * LIMIT_SHILLINGS;
+
+        int shillings = (operand.getShillings() + shillings_surplus) / constant;
+        int pences_surplus = ((operand.getShillings() + shillings_surplus) % constant) * LIMIT_PENCES;
+
+        int pences = (operand.getPences() + pences_surplus) / constant;
+
+        return Amount.AmountBuilder.builder().setPounds(pounds).setShillings(shillings).setPences(pences).build();
     }
 }
