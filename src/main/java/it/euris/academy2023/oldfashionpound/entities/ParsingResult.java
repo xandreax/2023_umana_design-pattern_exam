@@ -24,38 +24,38 @@ public class ParsingResult {
         return constant;
     }
 
-    public static class ParsingResultBuilder{
+    public static class ParsingResultBuilder {
         private final ParsingResult result;
 
-        private ParsingResultBuilder(){
+        private ParsingResultBuilder() {
             this.result = new ParsingResult();
         }
 
-        public static ParsingResultBuilder builder(){
+        public static ParsingResultBuilder builder() {
             return new ParsingResultBuilder();
         }
 
-        public ParsingResultBuilder setFirst(Amount first){
+        public ParsingResultBuilder setFirst(Amount first) {
             this.result.firstOperand = first;
             return this;
         }
 
-        public ParsingResultBuilder setOperator(OperationType operator){
+        public ParsingResultBuilder setOperator(OperationType operator) {
             this.result.operator = operator;
             return this;
         }
 
-        public ParsingResultBuilder setSecond (Amount second){
+        public ParsingResultBuilder setSecond(Amount second) {
             this.result.secondOperand = second;
             return this;
         }
 
-        public ParsingResultBuilder setConstant (int constant){
+        public ParsingResultBuilder setConstant(int constant) {
             this.result.constant = constant;
             return this;
         }
 
-        public ParsingResult build(){
+        public ParsingResult build() {
             return this.result;
         }
     }

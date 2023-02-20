@@ -5,7 +5,7 @@ import it.euris.academy2023.oldfashionpound.exceptions.ParsingExpressionExceptio
 
 public class Application {
 
-    public void run(String expression){
+    public void run(String expression) {
         AmountParser amountParser = AmountParser.getInstance();
         AmountPrinter amountPrinter = AmountPrinter.getInstance();
         try {

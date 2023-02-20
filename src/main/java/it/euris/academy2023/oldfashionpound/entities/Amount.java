@@ -20,33 +20,33 @@ public class Amount {
         return pences;
     }
 
-    public static class AmountBuilder{
+    public static class AmountBuilder {
         private final Amount amount;
 
-        private AmountBuilder(){
+        private AmountBuilder() {
             this.amount = new Amount();
         }
 
-        public static AmountBuilder builder(){
+        public static AmountBuilder builder() {
             return new AmountBuilder();
         }
 
-        public AmountBuilder setPences(int pences){
+        public AmountBuilder setPences(int pences) {
             this.amount.pences = pences;
             return this;
         }
 
-        public AmountBuilder setShillings(int shillings){
+        public AmountBuilder setShillings(int shillings) {
             this.amount.shillings = shillings;
             return this;
         }
 
-        public AmountBuilder setPounds(int pounds){
+        public AmountBuilder setPounds(int pounds) {
             this.amount.pounds = pounds;
             return this;
         }
 
-        public Amount build(){
+        public Amount build() {
             return this.amount;
         }
     }

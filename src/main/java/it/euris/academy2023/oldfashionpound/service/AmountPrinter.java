@@ -20,7 +20,7 @@ public class AmountPrinter {
         System.out.println("Error: " + error);
     }
 
-    public void printAmount(Amount amount){
+    public void printAmount(Amount amount) {
         System.out.printf("Result: %dp %ds %dd", amount.getPounds(), amount.getShillings(), amount.getPences());
     }
 }
