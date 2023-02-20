@@ -14,7 +14,7 @@ public class Application {
         try {
             ParsingResult parsingResult = amountParser.parse(expression);
             Operation operation = OperatorFactory.getInstance().getOperation(parsingResult);
-            amountPrinter.printAmount(operation.calculate());
+            amountPrinter.printOperationResult(operation.calculate());
         } catch (ParsingExpressionException | OperationTypeException e) {
             amountPrinter.printError(e.getMessage());
         }

@@ -2,6 +2,7 @@ package it.euris.academy2023.oldfashionpound.operations;
 
 import it.euris.academy2023.oldfashionpound.entities.Amount;
 import it.euris.academy2023.oldfashionpound.entities.Amount.AmountBuilder;
+import it.euris.academy2023.oldfashionpound.entities.OperationResult;
 
 public class Sum implements Operation {
 
@@ -14,7 +15,7 @@ public class Sum implements Operation {
     }
 
     @Override
-    public Amount calculate() {
+    public OperationResult calculate() {
 
         int pences = a1.getPences() + a2.getPences();
         int pences_surplus = 0;
@@ -31,7 +32,7 @@ public class Sum implements Operation {
         }
 
         int pounds = a1.getPounds() + a2.getPounds() + shillings_surplus;
-
-        return AmountBuilder.builder().setPounds(pounds).setShillings(shillings).setPences(pences).build();
+        Amount result = AmountBuilder.builder().setPounds(pounds).setShillings(shillings).setPences(pences).build();
+        return OperationResult.OperationResultBuilder.builder().setResultAmount(result).build();
     }
 }

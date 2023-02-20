@@ -1,6 +1,7 @@
 package it.euris.academy2023.oldfashionpound.operations;
 
 import it.euris.academy2023.oldfashionpound.entities.Amount;
+import it.euris.academy2023.oldfashionpound.entities.OperationResult;
 
 public class Multiplication implements Operation {
 
@@ -13,7 +14,7 @@ public class Multiplication implements Operation {
     }
 
     @Override
-    public Amount calculate() {
+    public OperationResult calculate() {
         int pences = operand.getPences() * constant;
         int pences_surplus = 0;
         if (pences > LIMIT_PENCES) {
@@ -30,6 +31,7 @@ public class Multiplication implements Operation {
 
         int pounds = (operand.getPounds() * constant) + shillings_surplus;
 
-        return Amount.AmountBuilder.builder().setPounds(pounds).setShillings(shillings).setPences(pences).build();
+        Amount result = Amount.AmountBuilder.builder().setPounds(pounds).setShillings(shillings).setPences(pences).build();
+        return OperationResult.OperationResultBuilder.builder().setResultAmount(result).build();
     }
 }
